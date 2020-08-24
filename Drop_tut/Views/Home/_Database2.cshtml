@@ -1,0 +1,22 @@
+﻿
+
+<h4>To jest czesciowy widok</h4>
+
+<div>
+    <table style="border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 10px">Imie</td>
+            <td>Płeć</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+
+            <td>@item.StudentName</td> 
+            <td>@item.StudentGender</td> 
+        </tr>
+        }
+
+    </table>
+</div>

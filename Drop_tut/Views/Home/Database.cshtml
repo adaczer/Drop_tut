@@ -1,0 +1,58 @@
+﻿@using Drop_tut.Models
+@model Drop_tut.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Database</title>
+</head>
+<body>
+    @{ 
+        List<Student> myList2 = new List<Student>()
+        {
+            new Student{StudentName = "krzys", StudentGender=Gender.Male},
+            new Student{StudentName = "stas", StudentGender=Gender.Male}
+        };
+    }
+
+
+
+
+
+    <div>
+        @{
+            Html.RenderAction("Database2");
+        }
+    </div>
+
+    <div style="border:2px solid black; padding: 25px;">
+        @using (Html.BeginForm("Database"))
+        {
+        <fieldset><legend>Dodaj studenta</legend>
+                  <div style="margin: 10px 10px">
+                      @Html.LabelFor(m => m.StudentName, htmlAttributes: new {@style = "font-weight: bold"})
+                      @Html.TextBoxFor(m => m.StudentName)
+
+                  </div>
+            <br />
+            <div style="margin: 10px 10px">
+                @Html.LabelFor(m => m.StudentGender, htmlAttributes: new { @style = "font-weight: bold" })
+                @Html.DropDownList("StudentGender2", new SelectList(Enum.GetValues(typeof(Gender))), "Wybierz plec")
+            </div>
+
+            <br />
+            <input style="margin: 20px 20px" type="submit" value="Wyslij" />
+
+        </fieldset>
+        }
+
+
+    </div>
+
+</body>
+</html>

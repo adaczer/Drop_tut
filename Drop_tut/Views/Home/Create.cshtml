@@ -1,0 +1,42 @@
+﻿@using Drop_tut.Models
+@model Drop_tut.Models.Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div> 
+
+       <h2>Dodaj studenta do bazy : </h2>
+    </div>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+
+        <div>
+            @Html.LabelFor(m => m.StudentName)
+            @Html.TextBoxFor(m => m.StudentName)
+            @Html.ValidationMessageFor(m=>m.StudentName)
+        </div>
+
+        <div>
+            @Html.LabelFor(m=>m.StudentGender)
+            @Html.DropDownListFor(m=>m.StudentGender, new SelectList(Enum.GetValues(typeof(Gender))),"Select Gender")
+            @*@Html.EditorFor(m=>m.StudentGender)*@
+        </div>
+
+        <input type="submit" value="Dodaj studenta"/>
+        }
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Drop_tut.Models.Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Display2</title>
+</head>
+<body>
+    <div> 
+
+        @foreach (var item in Model)
+        {
+            @item.StudentName <span> </span> @item.StudentGender
+        }
+    </div>
+</body>
+</html>
